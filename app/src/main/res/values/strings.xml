@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">factoryBit</string>
+    <string name="app_name">Factory Bit</string>
+    <string name="title_activity_screen_menu">ScreenMenu</string>
 </resources>

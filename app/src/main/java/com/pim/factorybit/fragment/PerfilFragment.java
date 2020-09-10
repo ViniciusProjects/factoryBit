@@ -1,0 +1,67 @@
+package com.pim.factorybit.fragment;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.pim.factorybit.R;
+
+
+
+public class PerfilFragment extends Fragment {
+
+    private TextView textPerfil;
+     Button conta;
+
+
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+
+    private String mParam1;
+    private String mParam2;
+
+    public PerfilFragment() {
+
+    }
+
+
+    public static PerfilFragment newInstance(String param1, String param2) {
+        PerfilFragment fragment = new PerfilFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        textPerfil = view.findViewById(R.id.textPerfil);
+        textPerfil.setText("SEU PERFIL");
+
+        conta = (Button) view.findViewById(R.id.conta);
+        return view;
+    }
+    public void clickButton(View view) {
+
+    }
+}
