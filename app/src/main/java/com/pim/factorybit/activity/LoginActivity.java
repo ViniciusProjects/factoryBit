@@ -4,19 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.pim.factorybit.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    EditText user, password;
+    EditText user ;
+    EditText password;
     Button btn;
 
 
@@ -32,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
         user = (EditText) findViewById(R.id.user);
         password = (EditText) findViewById(R.id.password);
         btn = (Button) findViewById(R.id.btn);
+
+
     }
 
     public void clickButton(View view) {
+
         if (user.getText().toString().equals("Vinicius") && password.getText().toString().equals("123"))
-            startActivity(new Intent(MainActivity.this, MenuScreen.class));
+            startActivity(new Intent(LoginActivity.this, MenuScreen.class));
         else
 
             Toast.makeText(this, "Usuário ou Senha Inválida", Toast.LENGTH_SHORT).show();
