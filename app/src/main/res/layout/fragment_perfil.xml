@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".fragment.PerfilFragment">
 
@@ -15,11 +16,14 @@
         android:text="Perfil"
         android:textSize="24sp" />
 
+
+
     <Button
-        android:id="@+id/conta"
+        android:id="@+id/config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="Conta" />
+        android:onClick="clickButton"
+        android:text="Configurações" />
 
 </FrameLayout>

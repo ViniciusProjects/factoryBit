@@ -17,7 +17,7 @@ import com.pim.factorybit.R;
 public class PerfilFragment extends Fragment {
 
     private TextView textPerfil;
-     Button conta;
+     Button config;
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -58,10 +58,11 @@ public class PerfilFragment extends Fragment {
         textPerfil = view.findViewById(R.id.textPerfil);
         textPerfil.setText("SEU PERFIL");
 
-        conta = (Button) view.findViewById(R.id.conta);
+        config = (Button) view.findViewById(R.id.config);
         return view;
     }
     public void clickButton(View view) {
+
 
     }
 }
