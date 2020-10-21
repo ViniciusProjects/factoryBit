@@ -1,28 +1,27 @@
 package com.pim.factorybit.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.pim.factorybit.R;
+import androidx.fragment.app.Fragment;
 
+import com.pim.factorybit.R;
 
 
 public class PerfilFragment extends Fragment {
 
     private TextView textPerfil;
-     Button config;
 
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    Button btn_dados_user;
+    View vista;
 
     private String mParam1;
     private String mParam2;
@@ -53,16 +52,14 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
+        vista = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        textPerfil = view.findViewById(R.id.textPerfil);
-        textPerfil.setText("SEU PERFIL");
+        textPerfil = vista.findViewById(R.id.textPerfil);
 
-        config = (Button) view.findViewById(R.id.config);
-        return view;
+        btn_dados_user = vista.findViewById(R.id.btn_dados_do_usuario);
+
+        return vista;
     }
-    public void clickButton(View view) {
 
 
-    }
 }

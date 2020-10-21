@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -13,9 +12,9 @@ import com.pim.factorybit.R;
 import com.pim.factorybit.fragment.InvestirFragment;
 import com.pim.factorybit.fragment.PerfilFragment;
 
-public class MenuScreen extends AppCompatActivity {
+public class TelaMenu extends AppCompatActivity {
 
-    private Button buttonInvestir, buttonPerfil;
+    private Button buttonInvestir, buttonPerfil, buttonComprarAtivos, buttonDadosUsuario;
 
     private PerfilFragment perfilFragment;
     private InvestirFragment investirFragment;
@@ -23,32 +22,19 @@ public class MenuScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_screen);
-
-        Intent intentRecebendo = getIntent();
-
-        Bundle param = intentRecebendo.getExtras();
-        if (param != null) {
-            String nome = param.getString("chave_nome");
-            int senha = param.getInt("chave_senha");
-
-            Toast.makeText(MenuScreen.this, "USUÁRIO:" + nome + "-Senha = " + senha, Toast.LENGTH_SHORT).show();
-
-        }
-
+        setContentView(R.layout.activity_tela_menu);
 
 
         //Remover sombra da actionBar
         getSupportActionBar().setElevation(0);
 
-         buttonInvestir = findViewById(R.id.buttonInvestir);
-         buttonPerfil = findViewById(R.id.buttonPerfil);
+        inicializacaoCampos();
 
         perfilFragment = new PerfilFragment();
         investirFragment = new InvestirFragment();
 
         //CONFIGURAR OBJETO PARA O FRAGMENTO
-         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameConteudo, perfilFragment);
         transaction.commit();
 
@@ -57,7 +43,7 @@ public class MenuScreen extends AppCompatActivity {
             public void onClick(View view) {
                 investirFragment = new InvestirFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudo, investirFragment );
+                transaction.replace(R.id.frameConteudo, investirFragment);
                 transaction.commit();
             }
         });
@@ -74,5 +60,23 @@ public class MenuScreen extends AppCompatActivity {
 
     }
 
+    private void inicializacaoCampos() {
+        buttonInvestir = findViewById(R.id.buttonInvestir);
+        buttonPerfil = findViewById(R.id.buttonPerfil);
+        buttonComprarAtivos = findViewById(R.id.btn_comprar_ativos);
+        buttonDadosUsuario = findViewById(R.id.btn_dados_do_usuario);
+
+    }
+
+
+    public void telaDeCompras(View view) {
+        Intent intent = new Intent(this, ComprarActivity.class);
+        startActivity(intent);
+    }
+
+    public void TelaDadosUsuario(View view) {
+        Intent intent = new Intent(this, DadosUsuarioActivity.class);
+        startActivity(intent);
+    }
 
 }

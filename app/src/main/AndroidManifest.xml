@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activity.SplashScreenActivity"/>
-        <activity android:name=".activity.MenuScreen" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.ComprarActivity"></activity>
+        <activity android:name=".activity.TelaMenu" />
+        <activity android:name=".activity.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
