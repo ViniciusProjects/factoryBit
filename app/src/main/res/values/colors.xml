@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#283593</color>
-    <color name="colorPrimaryDark">#283593</color>
+    <color name="colorPrimary">#343A40</color>
+    <color name="colorPrimaryDark">#343A40</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="bnt_done">#EB0E0E0E</color>
-    <color name="background_app">#65F4B536</color>
+    <color name="background_app">#00021615</color>
     <color name="btn">#FFFFFF</color>
     <color name="background_app_option">#FFFFFF</color>
-    <color name="color_fragmentes_option">#283593</color>
+    <color name="color_fragmentes_option">#00021615</color>
 </resources>

@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Factory Bit</string>
-    <string name="title_activity_screen_menu">ScreenMenu</string>
-    <string name="melhor_corretora_do_pais">Melhor corretora do país</string>
-    <string name="todo">TODO</string>
 </resources>
