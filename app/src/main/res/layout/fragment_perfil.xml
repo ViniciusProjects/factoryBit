@@ -23,6 +23,7 @@
         android:id="@+id/btn_dados_do_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
         android:onClick="TelaDadosUsuario"
         android:text="Meu dados"
         app:layout_constraintStart_toStartOf="parent"
