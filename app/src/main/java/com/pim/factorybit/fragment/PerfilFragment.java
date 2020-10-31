@@ -54,9 +54,9 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         vista = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        textPerfil = vista.findViewById(R.id.textPerfil);
+        textPerfil = vista.findViewById(R.id.id_text_view_titular);
 
-        btn_dados_user = vista.findViewById(R.id.btn_dados_do_usuario);
+       // btn_dados_user = vista.findViewById(R.id.btn_dados_do_usuario);
 
         return vista;
     }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Factory Bit</string>
+    <string name="Ativos">Ativos</string>
+    <string name="Criptoativos">Criptomoedas</string>
 </resources>

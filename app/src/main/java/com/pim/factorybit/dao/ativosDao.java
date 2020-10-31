@@ -2,19 +2,19 @@ package com.pim.factorybit.dao;
 
 import com.pim.factorybit.model.Ativo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ativosDao {
 
-    private final static List<Ativo> ativosList = new ArrayList<>();
+    public List<Ativo> listaDeAtivos() {
+        List<Ativo> ativos = new ArrayList<>(Arrays.asList(
+                new Ativo("1", new BigDecimal(234.99)),
+                new Ativo("2", new BigDecimal(420.50))));
+        return ativos;
 
-    public  void salva (Ativo ativo) {
-        ativosList.add(ativo);
+
     }
-    public List <Ativo> todos () {
-        return new ArrayList<>(ativosList);
-    }
-
-
 }

@@ -1,35 +1,21 @@
 package com.pim.factorybit.model;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class Ativo implements Serializable {
+public class Ativo {
 
-    private int id = 0;
     private String codigo;
+    private final BigDecimal preco;
 
 
-    public Ativo(String codigoAtivo) {
+    public Ativo(String codigoAtivo, BigDecimal preco) {
         this.codigo = codigoAtivo;
+        this.preco = preco;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public boolean temIdValido() {
-        return id > 0;
+    public BigDecimal getPreco() {
+        return preco;
     }
 
 

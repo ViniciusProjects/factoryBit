@@ -64,7 +64,7 @@ public class TelaMenu extends AppCompatActivity {
         buttonInvestir = findViewById(R.id.buttonInvestir);
         buttonPerfil = findViewById(R.id.buttonPerfil);
         buttonComprarAtivos = findViewById(R.id.btn_comprar_ativos);
-        buttonDadosUsuario = findViewById(R.id.btn_dados_do_usuario);
+       // buttonDadosUsuario = findViewById(R.id.btn_dados_do_usuario);
 
     }
 
