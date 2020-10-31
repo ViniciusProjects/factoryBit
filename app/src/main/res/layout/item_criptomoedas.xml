@@ -28,6 +28,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@id/item_ativo_img_bitcoin"
         app:layout_constraintStart_toEndOf="@id/item_ativo_img_bitcoin"
         app:layout_constraintStart_toStartOf="@id/item_ativo_img_bitcoin"
