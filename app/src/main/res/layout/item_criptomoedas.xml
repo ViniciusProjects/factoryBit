@@ -12,27 +12,65 @@
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bitcoin"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:src="sample/ativos.json/imagem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/item_nome_bitcoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@android:drawable/screen_background_dark_transparent"
         android:padding="8dp"
+
         android:text="Bitcoin"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@id/item_ativo_img_bitcoin"
-        app:layout_constraintStart_toEndOf="@id/item_ativo_img_bitcoin"
-        app:layout_constraintStart_toStartOf="@id/item_ativo_img_bitcoin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_ativo_img_bitcoin"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.077" />
+
+    <View
+        android:id="@+id/item_critomoedas_divisor"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_ativo_img_bitcoin"/>
+
+    <TextView
+        android:id="@+id/item_agora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AGORA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_critomoedas_divisor"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_margin="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_preco_bitcoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 30.000"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintTop_toBottomOf="@id/item_agora"
+        app:layout_constraintStart_toStartOf="@id/item_agora"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

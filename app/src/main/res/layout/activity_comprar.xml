@@ -47,12 +47,14 @@
         app:layout_constraintTop_toBottomOf="@+id/id_criptomoedas" />
 
     <ListView
+        android:id="@+id/lista_de_ativos_da_activity_comprar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView2"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_criptomoedas"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
