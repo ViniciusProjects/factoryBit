@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".fragment.PerfilFragment">
+    tools:context=".fragment.InicialFragment">
 
 
     <ImageView
@@ -22,16 +22,28 @@
         app:srcCompat="@color/input_dos_campos_login" />
 
     <TextView
-        android:id="@+id/id_text_view_titular"
+        android:id="@+id/id_text_view_dicas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vinicius"
+        android:text="Seja bem vindo (a)!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.07" />
+
+    <TextView
+        android:id="@+id/id_text_view_dicas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Na aba analise você poderia visualizar a média anual dos valores das criptmoedas!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.275" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

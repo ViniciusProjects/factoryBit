@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/color_fragmentes_option"
-        android:text="Investir"
+        android:text="@string/Analise"
         android:textColor="@color/botoes_dos_menus"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,11 @@
 
 
     <Button
-        android:id="@+id/buttonPerfil"
+        android:id="@+id/buttonInicial"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/color_fragmentes_option"
-        android:text="Perfil"
+        android:text="@string/Inicial"
         android:textColor="@color/botoes_dos_menus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"

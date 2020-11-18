@@ -6,26 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.InvestirFragment">
+    android:padding="10dp"
+    tools:context=".fragment.AnaliseFragment">
 
-    <TextView
-        android:id="@+id/text_investidor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="92dp"
-        android:gravity="center"
-        android:text="Investidor"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_comprar_ativos"
+        android:id="@+id/btn_analise_ativos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="telaDeCompras"
+        android:onClick="TelaDeAnalise"
         android:shadowColor="@color/background_app"
-        android:text="Comprar"
+        android:text="@string/Cotaçõo_anual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

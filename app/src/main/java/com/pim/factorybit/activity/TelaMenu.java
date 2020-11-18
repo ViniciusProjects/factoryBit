@@ -9,15 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.pim.factorybit.R;
-import com.pim.factorybit.fragment.InvestirFragment;
-import com.pim.factorybit.fragment.PerfilFragment;
+import com.pim.factorybit.fragment.AnaliseFragment;
+import com.pim.factorybit.fragment.InicialFragment;
 
 public class TelaMenu extends AppCompatActivity {
 
-    private Button buttonInvestir, buttonPerfil, buttonComprarAtivos, buttonDadosUsuario;
+    private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual;
 
-    private PerfilFragment perfilFragment;
-    private InvestirFragment investirFragment;
+    private InicialFragment inicialFragment;
+    private AnaliseFragment analiseFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +30,29 @@ public class TelaMenu extends AppCompatActivity {
 
         inicializacaoCampos();
 
-        perfilFragment = new PerfilFragment();
-        investirFragment = new InvestirFragment();
+        inicialFragment = new InicialFragment();
+        analiseFragment = new AnaliseFragment();
 
         //CONFIGURAR OBJETO PARA O FRAGMENTO
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameConteudo, perfilFragment);
+        transaction.replace(R.id.frameConteudo, inicialFragment);
         transaction.commit();
 
-        buttonInvestir.setOnClickListener(new View.OnClickListener() {
+        buttonAnalise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                investirFragment = new InvestirFragment();
+                analiseFragment = new AnaliseFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudo, investirFragment);
+                transaction.replace(R.id.frameConteudo, analiseFragment);
                 transaction.commit();
             }
         });
-        buttonPerfil.setOnClickListener(new View.OnClickListener() {
+        buttonInicial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                perfilFragment = new PerfilFragment();
+                inicialFragment = new InicialFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudo, perfilFragment);
+                transaction.replace(R.id.frameConteudo, inicialFragment);
                 transaction.commit();
             }
         });
@@ -61,22 +61,18 @@ public class TelaMenu extends AppCompatActivity {
     }
 
     private void inicializacaoCampos() {
-        buttonInvestir = findViewById(R.id.buttonInvestir);
-        buttonPerfil = findViewById(R.id.buttonPerfil);
-        buttonComprarAtivos = findViewById(R.id.btn_comprar_ativos);
-       // buttonDadosUsuario = findViewById(R.id.btn_dados_do_usuario);
+        buttonAnalise = findViewById(R.id.buttonInvestir);
+        buttonInicial = findViewById(R.id.buttonInicial);
+        buttonAnaliseMediaAnual = findViewById(R.id.btn_analise_ativos);
+
 
     }
 
 
-    public void telaDeCompras(View view) {
-        Intent intent = new Intent(this, ComprarActivity.class);
+    public void TelaDeAnalise(View view) {
+        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
         startActivity(intent);
     }
 
-    public void TelaDadosUsuario(View view) {
-        Intent intent = new Intent(this, DadosUsuarioActivity.class);
-        startActivity(intent);
-    }
 
 }

@@ -11,25 +11,25 @@ import androidx.fragment.app.Fragment;
 import com.pim.factorybit.R;
 
 
-public class InvestirFragment extends Fragment {
+public class AnaliseFragment extends Fragment {
 
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
 
-    Button btn_comprar;
+    Button btn_media_anual;
     View vista;
     private String mParam1;
     private String mParam2;
 
-    public InvestirFragment() {
+    public AnaliseFragment() {
 
     }
 
 
-    public static InvestirFragment newInstance(String param1, String param2) {
-        InvestirFragment fragment = new InvestirFragment();
+    public static AnaliseFragment newInstance(String param1, String param2) {
+        AnaliseFragment fragment = new AnaliseFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -42,9 +42,11 @@ public class InvestirFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        vista = inflater.inflate(R.layout.fragment_investir, container, false);
+        vista = inflater.inflate(R.layout.fragment_analise, container, false);
 
-        btn_comprar = vista.findViewById(R.id.btn_comprar_ativos);
+        btn_media_anual = vista.findViewById(R.id.btn_analise_ativos);
+
+
         return vista;
 
     }

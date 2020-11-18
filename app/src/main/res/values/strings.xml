@@ -2,4 +2,7 @@
     <string name="app_name">Factory Bit</string>
     <string name="Ativos">Ativos</string>
     <string name="Criptoativos">Criptomoedas</string>
+    <string name="Cotaçõo_anual">Média Anual</string>
+    <string name="Analise">Análise</string>
+    <string name="Inicial">Inicial</string>
 </resources>
