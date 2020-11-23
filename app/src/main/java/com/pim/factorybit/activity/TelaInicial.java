@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.pim.factorybit.R;
 
-public class TelaLogin extends AppCompatActivity {
+public class TelaInicial extends AppCompatActivity {
 
     EditText user;
     EditText password;
@@ -21,7 +21,7 @@ public class TelaLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_tela_inicial);
 
         //Remover sombra da ActionBar
         getSupportActionBar().setElevation(0);
@@ -47,7 +47,7 @@ public class TelaLogin extends AppCompatActivity {
 
     private void validarUsuario() {
         if (user.getText().toString().equals("Vinicius") && password.getText().toString().equals("123"))
-            startActivity(new Intent(TelaLogin.this, TelaMenu.class));
+            startActivity(new Intent(TelaInicial.this, ActivityTelaMenu.class));
         else
             mensagemAoEntrarNoApp("Usuário ou Senha Inválida");
     }

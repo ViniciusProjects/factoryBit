@@ -21,9 +21,8 @@ public class ActivityAnaliseMediaAnual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analise_media_anual);
+        setContentView(R.layout.activity_analise_grafico_1);
 
-        setContentView(R.layout.activity_analise_media_anual);
 
         BarChart barChart = findViewById(R.id.barChart);
 
@@ -37,7 +36,8 @@ public class ActivityAnaliseMediaAnual extends AppCompatActivity {
         visitors.add(new BarEntry(2019, 420));
         visitors.add(new BarEntry(2020, 420));
 
-        BarDataSet barDataSet = new BarDataSet(visitors, "Visitors ");
+
+        BarDataSet barDataSet = new BarDataSet(visitors, "Criptmoedas ");
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
@@ -45,7 +45,7 @@ public class ActivityAnaliseMediaAnual extends AppCompatActivity {
         BarData barData = new BarData(barDataSet);
         barChart.setFitBars(true);
         barChart.setData(barData);
-        barChart.getDescription().setText("Bar chart Example");
+        barChart.getDescription().setText("Ultimos 7 anos");
         barChart.animateY(2000);
 
     }

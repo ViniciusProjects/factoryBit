@@ -12,7 +12,7 @@ import com.pim.factorybit.R;
 import com.pim.factorybit.fragment.AnaliseFragment;
 import com.pim.factorybit.fragment.InicialFragment;
 
-public class TelaMenu extends AppCompatActivity {
+public class ActivityTelaMenu extends AppCompatActivity {
 
     private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual;
 
@@ -28,7 +28,7 @@ public class TelaMenu extends AppCompatActivity {
         //Remover sombra da actionBar
         getSupportActionBar().setElevation(0);
 
-        inicializacaoCampos();
+        inicializacaoBotoes();
 
         inicialFragment = new InicialFragment();
         analiseFragment = new AnaliseFragment();
@@ -60,16 +60,24 @@ public class TelaMenu extends AppCompatActivity {
 
     }
 
-    private void inicializacaoCampos() {
+    private void inicializacaoBotoes() {
         buttonAnalise = findViewById(R.id.buttonInvestir);
         buttonInicial = findViewById(R.id.buttonInicial);
         buttonAnaliseMediaAnual = findViewById(R.id.btn_analise_ativos);
-
-
     }
 
 
-    public void TelaDeAnalise(View view) {
+    public void AcaoClickPrimeiroGrafico(View view) {
+        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
+        startActivity(intent);
+    }
+
+    public void AcaoClickSegundoGrafico(View view) {
+        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
+        startActivity(intent);
+    }
+
+    public void AcaoClickTerceiroGrafico(View view) {
         Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
         startActivity(intent);
     }
