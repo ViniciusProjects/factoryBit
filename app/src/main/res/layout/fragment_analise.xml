@@ -14,7 +14,7 @@
         android:id="@+id/btn_analise_ativos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="TelaDeAnalise"
+        android:onClick="AcaoClickPrimeiroGrafico"
         android:shadowColor="@color/background_app"
         android:text="@string/Cotaçõo_anual"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,6 +24,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.663"
         tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/btn_analise2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="AcaoClickSegundoGrafico"
+        android:shadowColor="@color/background_app"
+        android:text="Grafico2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_analise_ativos"
+        tools:ignore="MissingConstraints,OnClick"
+        tools:layout_editor_absoluteX="-6dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="AcaoClickTerceiroGrafico"
+        android:shadowColor="@color/background_app"
+        android:text="Grafico 3"
+        app:layout_constraintTop_toBottomOf="@+id/btn_analise2"
+        tools:ignore="OnClick"
+        tools:layout_editor_absoluteX="9dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
