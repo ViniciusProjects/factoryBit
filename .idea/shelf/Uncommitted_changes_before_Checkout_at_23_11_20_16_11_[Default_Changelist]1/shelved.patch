@@ -1,0 +1,257 @@
+Index: app/src/main/res/layout/activity_analise_media_anual.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:padding=\"10dp\"\n    tools:context=\".activity.ActivityAnaliseMediaAnual\">\n\n    <com.github.mikephil.charting.charts.BarChart\n        android:id=\"@+id/barChart\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\" />\n\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/activity_analise_media_anual.xml	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/res/layout/activity_analise_grafico_1.xml	(date 1606157433000)
+@@ -13,4 +13,6 @@
+         android:layout_height="match_parent" />
+ 
+ 
++
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/pim/factorybit/activity/ActivityGrafico.java
+===================================================================
+--- app/src/main/java/com/pim/factorybit/activity/ActivityGrafico.java	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/java/com/pim/factorybit/activity/ActivityGrafico.java	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
+@@ -1,48 +0,0 @@
+-package com.pim.factorybit.activity;
+-
+-import android.graphics.Color;
+-import android.os.Bundle;
+-
+-import androidx.appcompat.app.AppCompatActivity;
+-
+-import com.github.mikephil.charting.charts.BarChart;
+-import com.github.mikephil.charting.data.BarData;
+-import com.github.mikephil.charting.data.BarDataSet;
+-import com.github.mikephil.charting.data.BarEntry;
+-import com.github.mikephil.charting.utils.ColorTemplate;
+-import com.pim.factorybit.R;
+-
+-import java.util.ArrayList;
+-
+-public class ActivityGrafico extends AppCompatActivity {
+-
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_analise_media_anual);
+-
+-        BarChart barChart = findViewById(R.id.barChart);
+-
+-        ArrayList<BarEntry> visitors = new ArrayList<>();
+-
+-        visitors.add(new BarEntry(2014, 420));
+-        visitors.add(new BarEntry(2015, 475));
+-        visitors.add(new BarEntry(2016, 420));
+-        visitors.add(new BarEntry(2017, 420));
+-        visitors.add(new BarEntry(2018, 420));
+-        visitors.add(new BarEntry(2019, 420));
+-        visitors.add(new BarEntry(2020, 420));
+-
+-        BarDataSet barDataSet = new BarDataSet(visitors, "Criptmoedas");
+-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+-        barDataSet.setValueTextColor(Color.BLACK);
+-        barDataSet.setValueTextSize(16f);
+-
+-        BarData barData = new BarData(barDataSet);
+-        barChart.setFitBars(true);
+-        barChart.setData(barData);
+-        barChart.getDescription().setText("Análise");
+-        barChart.animateY(2000);
+-
+-    }
+-}
+\ No newline at end of file
+Index: app/src/main/java/com/pim/factorybit/activity/TelaMenu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.pim.factorybit.activity;\n\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\n\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.fragment.app.FragmentTransaction;\n\nimport com.pim.factorybit.R;\nimport com.pim.factorybit.fragment.AnaliseFragment;\nimport com.pim.factorybit.fragment.InicialFragment;\n\npublic class TelaMenu extends AppCompatActivity {\n\n    private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual;\n\n    private InicialFragment inicialFragment;\n    private AnaliseFragment analiseFragment;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_tela_menu);\n\n\n        //Remover sombra da actionBar\n        getSupportActionBar().setElevation(0);\n\n        inicializacaoCampos();\n\n        inicialFragment = new InicialFragment();\n        analiseFragment = new AnaliseFragment();\n\n        //CONFIGURAR OBJETO PARA O FRAGMENTO\n        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();\n        transaction.replace(R.id.frameConteudo, inicialFragment);\n        transaction.commit();\n\n        buttonAnalise.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                analiseFragment = new AnaliseFragment();\n                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();\n                transaction.replace(R.id.frameConteudo, analiseFragment);\n                transaction.commit();\n            }\n        });\n        buttonInicial.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                inicialFragment = new InicialFragment();\n                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();\n                transaction.replace(R.id.frameConteudo, inicialFragment);\n                transaction.commit();\n            }\n        });\n\n\n    }\n\n    private void inicializacaoCampos() {\n        buttonAnalise = findViewById(R.id.buttonInvestir);\n        buttonInicial = findViewById(R.id.buttonInicial);\n        buttonAnaliseMediaAnual = findViewById(R.id.btn_analise_ativos);\n\n\n    }\n\n\n    public void TelaDeAnalise(View view) {\n        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);\n        startActivity(intent);\n    }\n\n\n}
+===================================================================
+--- app/src/main/java/com/pim/factorybit/activity/TelaMenu.java	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/java/com/pim/factorybit/activity/ActivityTelaMenu.java	(date 1606157433000)
+@@ -12,7 +12,7 @@
+ import com.pim.factorybit.fragment.AnaliseFragment;
+ import com.pim.factorybit.fragment.InicialFragment;
+ 
+-public class TelaMenu extends AppCompatActivity {
++public class ActivityTelaMenu extends AppCompatActivity {
+ 
+     private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual;
+ 
+@@ -28,7 +28,7 @@
+         //Remover sombra da actionBar
+         getSupportActionBar().setElevation(0);
+ 
+-        inicializacaoCampos();
++        inicializacaoBotoes();
+ 
+         inicialFragment = new InicialFragment();
+         analiseFragment = new AnaliseFragment();
+@@ -60,16 +60,24 @@
+ 
+     }
+ 
+-    private void inicializacaoCampos() {
++    private void inicializacaoBotoes() {
+         buttonAnalise = findViewById(R.id.buttonInvestir);
+         buttonInicial = findViewById(R.id.buttonInicial);
+         buttonAnaliseMediaAnual = findViewById(R.id.btn_analise_ativos);
++    }
+ 
+ 
++    public void AcaoClickPrimeiroGrafico(View view) {
++        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
++        startActivity(intent);
+     }
+ 
++    public void AcaoClickSegundoGrafico(View view) {
++        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
++        startActivity(intent);
++    }
+ 
+-    public void TelaDeAnalise(View view) {
++    public void AcaoClickTerceiroGrafico(View view) {
+         Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
+         startActivity(intent);
+     }
+Index: app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/background_app\"\n    tools:context=\".activity.TelaLogin\">\n\n\n    <Button\n        android:id=\"@+id/btn_entrar\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@color/design_default_color_background\"\n        android:onClick=\"clickButton\"\n        android:text=\"Entrar\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/password\"\n        app:layout_constraintVertical_bias=\"0.449\" />\n\n    <EditText\n        android:id=\"@+id/user\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@color/background_app_option\"\n        android:ems=\"10\"\n        android:hint=\"Usuário\"\n        android:inputType=\"textCapWords\"\n        android:textColor=\"@color/input_dos_campos_login\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.552\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintVertical_bias=\"0.499\" />\n\n    <EditText\n        android:id=\"@+id/password\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@color/background_app_option\"\n        android:ems=\"10\"\n        android:hint=\"Senha\"\n        android:inputType=\"phone\"\n        android:textColor=\"@color/input_dos_campos_login\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.557\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintVertical_bias=\"0.623\" />\n\n    <ImageView\n        android:id=\"@+id/imageView\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.498\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintVertical_bias=\"0.17\"\n        app:srcCompat=\"@mipmap/ic_launcher_novo_icon\" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/activity_login.xml	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/res/layout/activity_tela_inicial.xml	(date 1606157433000)
+@@ -6,7 +6,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@color/background_app"
+-    tools:context=".activity.TelaLogin">
++    tools:context=".activity.TelaInicial">
+ 
+ 
+     <Button
+Index: app/src/main/res/layout/activity_tela_menu.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@drawable/background_custom_\"\n    tools:context=\".activity.TelaMenu\">\n\n    <androidx.constraintlayout.widget.Guideline\n        android:id=\"@+id/guideline2\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"vertical\"\n        app:layout_constraintGuide_percent=\"0.5\" />\n\n    <Button\n        android:id=\"@+id/buttonInvestir\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@color/color_fragmentes_option\"\n        android:text=\"@string/Analise\"\n        android:textColor=\"@color/botoes_dos_menus\"\n        app:layout_constraintEnd_toStartOf=\"@+id/guideline2\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n\n        />\n\n\n    <Button\n        android:id=\"@+id/buttonInicial\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@color/color_fragmentes_option\"\n        android:text=\"@string/Inicial\"\n        android:textColor=\"@color/botoes_dos_menus\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"@+id/guideline2\"\n        app:layout_constraintTop_toTopOf=\"parent\" />\n\n    <FrameLayout\n        android:id=\"@+id/frameConteudo\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"0dp\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginLeft=\"8dp\"\n        android:layout_marginTop=\"56dp\"\n        android:layout_marginEnd=\"8dp\"\n        android:layout_marginRight=\"8dp\"\n        android:layout_marginBottom=\"8dp\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n\n    </FrameLayout>\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_tela_menu.xml	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/res/layout/activity_tela_menu.xml	(date 1606157433000)
+@@ -5,7 +5,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@drawable/background_custom_"
+-    tools:context=".activity.TelaMenu">
++    tools:context=".activity.ActivityTelaMenu">
+ 
+     <androidx.constraintlayout.widget.Guideline
+         android:id="@+id/guideline2"
+Index: app/src/main/res/layout/fragment_analise.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/relativeLayout\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"10dp\"\n    tools:context=\".fragment.AnaliseFragment\">\n\n\n    <Button\n        android:id=\"@+id/btn_analise_ativos\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:onClick=\"TelaDeAnalise\"\n        android:shadowColor=\"@color/background_app\"\n        android:text=\"@string/Cotaçõo_anual\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintHorizontal_bias=\"0.0\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintVertical_bias=\"0.663\"\n        tools:ignore=\"OnClick\" />\n\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_analise.xml	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/res/layout/fragment_analise.xml	(date 1606157433000)
+@@ -14,7 +14,7 @@
+         android:id="@+id/btn_analise_ativos"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:onClick="TelaDeAnalise"
++        android:onClick="AcaoClickPrimeiroGrafico"
+         android:shadowColor="@color/background_app"
+         android:text="@string/Cotaçõo_anual"
+         app:layout_constraintBottom_toBottomOf="parent"
+@@ -25,5 +25,28 @@
+         app:layout_constraintVertical_bias="0.663"
+         tools:ignore="OnClick" />
+ 
++    <Button
++        android:id="@+id/btn_analise2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="40dp"
++        android:onClick="AcaoClickSegundoGrafico"
++        android:shadowColor="@color/background_app"
++        android:text="Grafico2"
++        app:layout_constraintTop_toBottomOf="@+id/btn_analise_ativos"
++        tools:ignore="MissingConstraints,OnClick"
++        tools:layout_editor_absoluteX="-6dp" />
++
++    <Button
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="40dp"
++        android:onClick="AcaoClickTerceiroGrafico"
++        android:shadowColor="@color/background_app"
++        android:text="Grafico 3"
++        app:layout_constraintTop_toBottomOf="@+id/btn_analise2"
++        tools:ignore="OnClick"
++        tools:layout_editor_absoluteX="9dp" />
++
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/pim/factorybit/activity/TelaLogin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.pim.factorybit.activity;\n\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.Toast;\n\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport com.pim.factorybit.R;\n\npublic class TelaLogin extends AppCompatActivity {\n\n    EditText user;\n    EditText password;\n    Button entrar;\n\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_login);\n\n        //Remover sombra da ActionBar\n        getSupportActionBar().setElevation(0);\n\n        mensagemAoEntrarNoApp(\"Bem-vindo\");\n        inicializacaoDosCampos();\n    }\n\n    private void mensagemAoEntrarNoApp(String s) {\n        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();\n    }\n\n    private void inicializacaoDosCampos() {\n        user = (EditText) findViewById(R.id.user);\n        password = (EditText) findViewById(R.id.password);\n        entrar = (Button) findViewById(R.id.btn_entrar);\n    }\n\n\n    public void clickButton(View view) {\n        validarUsuario();\n    }\n\n    private void validarUsuario() {\n        if (user.getText().toString().equals(\"Vinicius\") && password.getText().toString().equals(\"123\"))\n            startActivity(new Intent(TelaLogin.this, TelaMenu.class));\n        else\n            mensagemAoEntrarNoApp(\"Usuário ou Senha Inválida\");\n    }\n\n    @Override\n    protected void onDestroy() {\n        super.onDestroy();\n        Toast.makeText(this, \"Até mais\", Toast.LENGTH_SHORT).show();\n    }\n}
+===================================================================
+--- app/src/main/java/com/pim/factorybit/activity/TelaLogin.java	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/java/com/pim/factorybit/activity/TelaInicial.java	(date 1606157434000)
+@@ -11,7 +11,7 @@
+ 
+ import com.pim.factorybit.R;
+ 
+-public class TelaLogin extends AppCompatActivity {
++public class TelaInicial extends AppCompatActivity {
+ 
+     EditText user;
+     EditText password;
+@@ -21,7 +21,7 @@
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_login);
++        setContentView(R.layout.activity_tela_inicial);
+ 
+         //Remover sombra da ActionBar
+         getSupportActionBar().setElevation(0);
+@@ -47,7 +47,7 @@
+ 
+     private void validarUsuario() {
+         if (user.getText().toString().equals("Vinicius") && password.getText().toString().equals("123"))
+-            startActivity(new Intent(TelaLogin.this, TelaMenu.class));
++            startActivity(new Intent(TelaInicial.this, ActivityTelaMenu.class));
+         else
+             mensagemAoEntrarNoApp("Usuário ou Senha Inválida");
+     }
+Index: app/src/main/java/com/pim/factorybit/activity/ActivityAnaliseMediaAnual.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.pim.factorybit.activity;\n\nimport android.content.Intent;\nimport android.graphics.Color;\nimport android.os.Bundle;\nimport android.view.View;\n\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport com.github.mikephil.charting.charts.BarChart;\nimport com.github.mikephil.charting.data.BarData;\nimport com.github.mikephil.charting.data.BarDataSet;\nimport com.github.mikephil.charting.data.BarEntry;\nimport com.github.mikephil.charting.utils.ColorTemplate;\nimport com.pim.factorybit.R;\n\nimport java.util.ArrayList;\n\npublic class ActivityAnaliseMediaAnual extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_analise_media_anual);\n\n        setContentView(R.layout.activity_analise_media_anual);\n\n        BarChart barChart = findViewById(R.id.barChart);\n\n        ArrayList<BarEntry> visitors = new ArrayList<>();\n\n        visitors.add(new BarEntry(2014, 420));\n        visitors.add(new BarEntry(2015, 475));\n        visitors.add(new BarEntry(2016, 420));\n        visitors.add(new BarEntry(2017, 420));\n        visitors.add(new BarEntry(2018, 420));\n        visitors.add(new BarEntry(2019, 420));\n        visitors.add(new BarEntry(2020, 420));\n\n        BarDataSet barDataSet = new BarDataSet(visitors, \"Visitors \");\n        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);\n        barDataSet.setValueTextColor(Color.BLACK);\n        barDataSet.setValueTextSize(16f);\n\n        BarData barData = new BarData(barDataSet);\n        barChart.setFitBars(true);\n        barChart.setData(barData);\n        barChart.getDescription().setText(\"Bar chart Example\");\n        barChart.animateY(2000);\n\n    }\n\n    public void TelaDeAnalise(View view) {\n        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);\n        startActivity(intent);\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/pim/factorybit/activity/ActivityAnaliseMediaAnual.java	(revision 1955377fc85b5305f00699afb6ca2d6ae479bea4)
++++ app/src/main/java/com/pim/factorybit/activity/ActivityAnaliseMediaAnual.java	(date 1606157618000)
+@@ -21,9 +21,7 @@
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_analise_media_anual);
+-
+-        setContentView(R.layout.activity_analise_media_anual);
++        setContentView(R.layout.activity_analise_grafico_1);
+ 
+         BarChart barChart = findViewById(R.id.barChart);
+ 

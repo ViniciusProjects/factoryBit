@@ -21,23 +21,24 @@ public class ActivityAnaliseMediaAnual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analise_grafico_1);
+        setContentView(R.layout.activity_analise_media_anual_grafico);
 
 
         BarChart barChart = findViewById(R.id.barChart);
 
         ArrayList<BarEntry> visitors = new ArrayList<>();
 
-        visitors.add(new BarEntry(2014, 420));
-        visitors.add(new BarEntry(2015, 475));
-        visitors.add(new BarEntry(2016, 420));
-        visitors.add(new BarEntry(2017, 420));
-        visitors.add(new BarEntry(2018, 420));
-        visitors.add(new BarEntry(2019, 420));
-        visitors.add(new BarEntry(2020, 420));
+        visitors.add(new BarEntry(2014, 180));
+        visitors.add(new BarEntry(2015, 70));
+        visitors.add(new BarEntry(2016, 180));
+        visitors.add(new BarEntry(2017, 350));
+        visitors.add(new BarEntry(2018, 555));
+        visitors.add(new BarEntry(2019, 4798));
+        visitors.add(new BarEntry(2020, 10000));
 
 
-        BarDataSet barDataSet = new BarDataSet(visitors, "Criptmoedas ");
+        BarDataSet barDataSet = new BarDataSet(visitors, "Bitcoin nos ultimos 7 anos ");
+
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
@@ -45,8 +46,9 @@ public class ActivityAnaliseMediaAnual extends AppCompatActivity {
         BarData barData = new BarData(barDataSet);
         barChart.setFitBars(true);
         barChart.setData(barData);
-        barChart.getDescription().setText("Ultimos 7 anos");
+        barChart.getDescription().setText("Valores em reais");
         barChart.animateY(2000);
+
 
     }
 

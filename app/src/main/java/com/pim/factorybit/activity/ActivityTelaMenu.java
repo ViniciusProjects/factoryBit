@@ -14,7 +14,7 @@ import com.pim.factorybit.fragment.InicialFragment;
 
 public class ActivityTelaMenu extends AppCompatActivity {
 
-    private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual;
+    private Button buttonAnalise, buttonInicial, buttonAnaliseMediaAnual, buttonTabelaRanking;
 
     private InicialFragment inicialFragment;
     private AnaliseFragment analiseFragment;
@@ -68,16 +68,6 @@ public class ActivityTelaMenu extends AppCompatActivity {
 
 
     public void AcaoClickPrimeiroGrafico(View view) {
-        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
-        startActivity(intent);
-    }
-
-    public void AcaoClickSegundoGrafico(View view) {
-        Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
-        startActivity(intent);
-    }
-
-    public void AcaoClickTerceiroGrafico(View view) {
         Intent intent = new Intent(this, ActivityAnaliseMediaAnual.class);
         startActivity(intent);
     }
